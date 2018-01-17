@@ -1,9 +1,48 @@
 <template>
         <div>
-          <b-container>
-            <b-row>
-              <b-col cols="9" class="drawer">
+          <!--b-container-->
+            <b-row style="margin-left: 50px; margin-right:50px;">
+              <b-col cols="9">
                 <!--Drawer-->
+                <div class="drawer">
+                  <b-embed
+                    type="iframe"
+                    src=""
+                    id="drawer">
+                  </b-embed>
+                </div>
+                <b-row>
+                  <b-col>
+                    <h5>Part of Speech</h5>
+                    <b-button-group size="sm">
+                      <b-row>
+                      <div v-for="data in thPartofSpeechs">
+                        <b-button inlined size="sm" variant="outline-success" v-on:click="newNode">{{data.POS}}</b-button>
+                      </div>
+                    </b-row>
+                    </b-button-group>
+
+                      <div v-for="data in thPartofSpeechs">
+                        {{data.Description}}
+                      </div>
+
+                  </b-col>
+
+                  <b-col>
+                    <h5>Phrase</h5>
+                    <b-button-group size="sm">
+                      <b-row>
+                      <div v-for="data in phrases">
+                        <b-button size="sm" variant="outline-primary" v-on:click="newNode">{{data.Phrase}}</b-button>
+                      </div>
+                      </b-row>
+                      </b-button-group>
+
+                      <div v-for="data in phrases">
+                        {{data.Description}}
+                      </div>
+                  </b-col>
+                </b-row>
               </b-col>
               <b-col cols="3">
                 <b-row>
@@ -20,38 +59,16 @@
                     </b-col>
                   </b-form>
                 </b-row>
-                <b-row>
-                  <b-col>
-                    <h5>Part of Speech</h5>
-                    <ul >
-                      <li v-for="data in thPartofSpeechs">
-                        <b-button size="sm" variant="outline-success" v-on:click="newNode">{{data.POS}}</b-button>
-                        <br />
-                        {{data.Description}}
-                      </li>
-                    </ul>
-                  </b-col>
 
-                  <b-col>
-                    <h5>Phrase</h5>
-                    <ul>
-                      <li v-for="data in phrases">
-                        <b-button size="sm" variant="outline-primary" v-on:click="newNode">{{data.Phrase}}</b-button>
-                        <br />
-                        {{data.Description}}
-                      </li>
-                    </ul>
-                  </b-col>
-                </b-row>
               </b-col>
             </b-row>
-          </b-container>
+          <!--/b-container-->
         </div>
 </template>
 
 <script>
-import pof from '/Users/pechladaseenual/rsyntaxtree/src/json/thpof.json'
-import phrase from '/Users/pechladaseenual/rsyntaxtree/src/json/phase.json'
+import pof from './json/thpof.json'
+import phrase from './json/phase.json'
 export default {
   name : 'DrawMenu',
   data() {
@@ -78,10 +95,10 @@ export default {
 <style>
   .drawer{
     border: 1px solid black;
+    margin-bottom: 10px;
   }
   ul{
-    list-style-type: none;
-    text-align: left;
+
   }
   .padding{
     margin: 15px;
@@ -95,4 +112,6 @@ export default {
   input{
     margin:5px;
   }
+
+
 </style>

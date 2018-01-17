@@ -1,3 +1,5 @@
+
+iframe.contentWindow.onload =
 alert('hi from js file');
 
 

@@ -1,14 +1,10 @@
-console.log("graph-creator.js");
 
-function sayHi(){
-  alert('hi');
-}
-
-window.onload =  graphDrawer();
+//window.onload =  graphDrawer();
 
 //document.getElementById('myFrame').onload = graphDrawer();
-//document.onload = (function(d3, saveAs, Blob, undefined){
-function graphDrawer() {
+iframe = document.getElementById('')
+document.onload = (function(d3, saveAs, Blob, undefined){
+//function graphDrawer() {
   (function(d3, saveAs, Blob, undefined){
   "use strict";
 
